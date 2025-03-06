@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University & College Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Step 1: Login Page -->
+<section id="login-section">
+    <h2>Login</h2>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Login</button>
+    </form>
+</section>
+
+<!-- Step 2: State Selection -->
+<section id="state-selection" style="display:none;">
+    <h2>Select State</h2>
+    <select id="state-dropdown">
+        <option value="Bihar">Bihar</option>
+        <option value="Kerela">Kerela</option>
+        <option value="Pune">Pune</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Noida">Noida</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Hyderabad">Hyderabad</option>
+    </select>
+    
+        
+        <!-- Add more states -->
+    </select>
+    <button id="load-universities">Show Universities</button>
+</section>
+
+<!-- Step 3: Display University List -->
+<section id="university-list" style="display:none;">
+    <h2>Universities in Selected State</h2>
+    <ul id="universities"></ul>
+</section>
+
+<!-- Step 4: College Details -->
+<section id="college-details" style="display:none;">
+    <h2>College Details</h2>
+    <div id="college-info"></div>
+    <h3>Select Stream</h3>
+    <select id="stream-dropdown">
+        <option value="engineering">Engineering</option>
+        <option value="medical">Medical</option>
+        <option value="arts">Arts</option>
+        <!-- Add more streams -->
+    </select>
+    <div id="stream-details"></div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

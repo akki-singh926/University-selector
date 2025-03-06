@@ -1,0 +1,102 @@
+/* style.css */
+/* style.css */
+
+/* Style for body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make sure it's full screen */
+    
+}
+#state-selection {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 300px; /* Fixed width */
+    text-align: center;
+    display: none; /* Initially hidden */
+}
+
+/* Style for the heading in state-selection section */
+#state-selection h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Style for the select dropdown */
+#state-dropdown {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-bottom: 20px; /* Space below the dropdown */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Style for the button */
+#load-universities {
+    width: 100%; /* Full width */
+    padding: 10px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#load-universities:hover {
+    background-color: #45a049; /* Slightly darker green */
+}
+
+/* Style for the login section */
+  #login-section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Style for input fields */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; /* Add space between fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for the login button */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Style for the form to ensure proper spacing */
+ form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#load-universities{
+    margin-top: 20px;
+    padding-right: 
+}
