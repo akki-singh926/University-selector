@@ -1,50 +1,250 @@
-/* style.css */
-/* style.css */
+/* General Styles */
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* Style for body */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    text-align: center;
     margin: 0;
     padding: 0;
-    background-color:#e3f2fd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Make sure it's full screen */
-    
 }
+
+/* Sections */
+section {
+    width: 50%;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Inputs & Select */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Links */
+a {
+    color: #ff7eb3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ff4f7b;
+}
+
+/* ✨ RESPONSIVE DESIGN */
+
+/* Small screens (Mobile) */
+@media (max-width: 768px) {
+    section {
+        width: 90%;
+        padding: 20px;
+    }
+    button {
+        width: 100%;
+        padding: 14px;
+    }
+    input, select {
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+/* Medium screens (Tablets) */
+@media (max-width: 1024px) {
+    section {
+        width: 70%;
+    }
+}
+
+/* Large screens (Desktops) */
+@media (min-width: 1200px) {
+    section {
+        width: 50%;
+    }
+}
+
+
+/* Sections */
+section {
+    width: 50%;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+    background: #ff7eb3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #ff4f7b;
+}
+
+/* Inputs */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.2);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Links */
+a {
+    color: #ff7eb3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #ff4f7b;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+button {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+section {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+
 #state-selection {
     background-color: white;
     padding: 20px;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 300px; /* Fixed width */
+    border-radius: 8px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px; 
     text-align: center;
-    display: none; /* Initially hidden */
+    display: none; 
 }
 
-/* Style for the heading in state-selection section */
+
 #state-selection h2 {
     font-size: 1.5rem;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Style for the select dropdown */
 #state-dropdown {
-    width: 100%; /* Full width */
+    width: 100%; 
     padding: 10px;
-    margin-bottom: 20px; /* Space below the dropdown */
+    margin-bottom: 20px; 
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-/* Style for the button */
+
 #load-universities {
-    width: 100%; /* Full width */
+    width: 100%; 
     padding: 10px;
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -53,10 +253,10 @@ body {
 }
 
 #load-universities:hover {
-    background-color: #45a049; /* Slightly darker green */
+    background-color: #45a049; 
 }
 
-/* Style for the login section */
+
   #login-section{
     background-color: white;
     padding: 20px;
@@ -66,16 +266,16 @@ body {
     text-align: center;
 }
 
-/* Style for input fields */
+
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin: 10px 0; /* Add space between fields */
+    margin: 10px 0; 
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Style for the login button */
+
 button {
     width: 100%;
     padding: 10px;
@@ -90,7 +290,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Style for the form to ensure proper spacing */
+
  form{
     display: flex;
     flex-direction: column;
@@ -98,5 +298,59 @@ button:hover {
 }
 #load-universities{
     margin-top: 20px;
-    padding-right: 
+} 
+/* Ensure buttons are properly styled */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px; /* Add margin to prevent overlap */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Specific styling for the Login and Registration sections to ensure proper spacing */
+#login-section, #registration-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+#login-section {
+    margin-top: 20px;
+}
+
+#registration-section {
+    display: none; /* Initially hidden */
+}
+
+/* Centering the form content vertically and horizontally */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3f2fd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Making sure the form input fields are correctly styled */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
