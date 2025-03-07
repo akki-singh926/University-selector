@@ -1,23 +1,84 @@
 const loginForm = document.getElementById('login-form');
 const loginSection = document.getElementById('login-section');
 const stateSelectionSection = document.getElementById('state-selection');
+const registrationForm = document.getElementById('registration-form');
+const universitiesList = document.getElementById('universities');
+const loadUniversitiesButton = document.getElementById('load-universities');
+const registrationSection = document.getElementById('registration-section');
 
-// Handle login button click (or form submission)
-loginForm.addEventListener('submit', function (e) {
-    e.preventDefault();  // Prevent default form submission
+// Buttons
+const goToRegisterButton = document.getElementById('go-to-register');
+const backToLoginButton = document.getElementById('back-to-login');
 
-    // You can validate the login credentials here if necessary
-
-    // Hide the login section and show the state selection section
-    loginSection.style.display = 'none';  // Hide the login section
-    stateSelectionSection.style.display = 'block';  // Show the state selection section
+// Navigate to Registration
+goToRegisterButton.addEventListener('click', function () {
+    loginSection.style.display = 'none';
+    registrationSection.style.display = 'block';
 });
 
-// State selection
-document.getElementById('load-universities').addEventListener('click', function () {
+// Navigate back to Login
+backToLoginButton.addEventListener('click', function () {
+    registrationSection.style.display = 'none';
+    loginSection.style.display = 'block';
+});
+
+// Registration Logic
+registrationForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('new-username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('new-password').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if username or email already exists
+    const userExists = users.some(user => user.username === username || user.email === email);
+    
+    if (userExists) {
+        alert('Username or email already exists. Please try another.');
+        return;
+    }
+
+    // Store user data
+    users.push({ username, email, password });
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert('Registration successful! You can now log in.');
+
+    registrationSection.style.display = 'none';
+    loginSection.style.display = 'block';
+});
+
+// Login Logic
+loginForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Validate credentials
+    const validUser = users.find(user => user.username === username && user.password === password);
+
+    if (validUser) {
+        alert('Login successful!');
+        loginSection.style.display = 'none';
+        stateSelectionSection.style.display = 'block';
+        const welcomeMessage = document.getElementById('welcome-message');
+        welcomeMessage.classList.add('show');
+    } else {
+        alert('Invalid username or password');
+    }
+});
+
+
+
+// Show universities based on selected state
+loadUniversitiesButton.addEventListener('click', function () {
     const selectedState = document.getElementById('state-dropdown').value;
 
-    // Define universities for each state
     const universitiesByState = {
         'Bihar': ['Patna University', 'Nalanda University', 'Indira Gandhi Institute of Medical Sciences'],
         'Kerela': ['University of Kerala', 'Cochin University of Science and Technology', 'National Institute of Technology Calicut'],
@@ -29,19 +90,15 @@ document.getElementById('load-universities').addEventListener('click', function 
         'Hyderabad': ['University of Hyderabad', 'Osmania University', 'Indian School of Business']
     };
 
-    // Fetch universities based on the selected state
     const universities = universitiesByState[selectedState];
-      // Get the universities array for selected state
-      console.log(selectedState);
 
-    const universitiesList = document.getElementById('universities');
-    universitiesList.innerHTML = '';  // Clear existing list
+    universitiesList.innerHTML = ''; // Clear list before adding new data
 
     if (universities && universities.length > 0) {
         universities.forEach(university => {
             const li = document.createElement('li');
             const universityLink = document.createElement('a');
-            universityLink.href = '#';  // You can replace the # with an actual link if needed
+            universityLink.href = '#';
             universityLink.textContent = university;
 
             universityLink.addEventListener('click', function () {
@@ -52,21 +109,18 @@ document.getElementById('load-universities').addEventListener('click', function 
             universitiesList.appendChild(li);
         });
     } else {
-        // If no universities are found for the selected state, show a message
         universitiesList.innerHTML = '<li>No universities found for the selected state.</li>';
     }
 
-    // Hide the state selection section and show the university list section
     stateSelectionSection.style.display = 'none';
     document.getElementById('university-list').style.display = 'block';
 });
 
-// Show college details and stream options
+// Show details of the selected university
 function showCollegeDetails(university) {
     document.getElementById('university-list').style.display = 'none';
     document.getElementById('college-details').style.display = 'block';
 
-    // Display mock college details for the selected university (you can replace with real data later)
     document.getElementById('college-info').innerHTML = `
         <p><strong>${university}</strong></p>
         <p>Course Fees: $10,000/year</p>
@@ -75,7 +129,10 @@ function showCollegeDetails(university) {
     `;
 }
 
-// Handle stream selection
+
+
+
+// Stream dropdown change event
 document.getElementById('stream-dropdown').addEventListener('change', function () {
     const selectedStream = this.value;
     let streamDetails = '';
